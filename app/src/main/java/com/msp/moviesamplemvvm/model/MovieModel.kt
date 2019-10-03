@@ -17,7 +17,6 @@ class MovieModel {
      var country: String? = null
      var awards: String? = null
      var poster: String? = null
-     var ratings: MutableList<RatingModel>? = arrayListOf()
      var metascore: String? = null
      var imdbRating: String? = null
      var imdbVotes: String? = null
