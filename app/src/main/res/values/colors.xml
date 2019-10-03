@@ -2,5 +2,9 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#722C8F</color>
+
+    <color name="yellow_app">#EB7D25</color>
+    <color name="gary_app">#BABABA</color>
+
 </resources>

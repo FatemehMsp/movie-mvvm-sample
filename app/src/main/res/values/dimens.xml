@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Default Distance-->
+    <dimen name="distance_smaller">3dp</dimen>
+    <dimen name="distance_small">5dp</dimen>
+    <dimen name="distance_normal">10dp</dimen>
+    <dimen name="distance_medium">15dp</dimen>
+    <dimen name="distance_large">20dp</dimen>
+    <dimen name="distance_xLarge">25dp</dimen>
+
+    <!--Default Text Size-->
+    <dimen name="textSize_smallest">8dp</dimen>
+    <dimen name="textSize_smaller">10dp</dimen>
+    <dimen name="textSize_small">12dp</dimen>
+    <dimen name="textSize_normal">14dp</dimen>
+    <dimen name="textSize_medium">16dp</dimen>
+    <dimen name="textSize_large">18dp</dimen>
+    <dimen name="textSize_xLarge">20dp</dimen>
+    <dimen name="textSize_xxLarge">22dp</dimen>
+
+    <!--elevation-->
+    <dimen name="elevation_level_1">2dp</dimen>
+    <dimen name="elevation_level_2">4dp</dimen>
+    <dimen name="elevation_level_3">8dp</dimen>
+    <dimen name="elevation_level_4">16dp</dimen>
+
+    <!--Default IconFont Size-->
+    <dimen name="iconSize_small">15dp</dimen>
+    <dimen name="iconSize_normal">20dp</dimen>
+    <dimen name="iconSize_large">25dp</dimen>
+    <dimen name="iconSize_xLarge">30dp</dimen>
+    <dimen name="iconSize_xxLarge">50dp</dimen>
+
+    <dimen name="toolbar_height">44dp</dimen>
+    <dimen name="toolbar_item_size">45dp</dimen>
+
+    <dimen name="statusBar_height">0dp</dimen>
+    <dimen name="actionbar_height">55dp</dimen>
+    <dimen name="tabBar_height">40dp</dimen>
+    <dimen name="actionbar_plus_statusBar_height">55dp</dimen>
+
+    <dimen name="default_elevation">4dp</dimen>
+    <dimen name="progress_size">60dp</dimen>
+
+</resources>
