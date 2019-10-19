@@ -43,8 +43,8 @@ class ApiClient {
         return service.getSeason(API_KEY, MOVIE_TITLE, season)
     }
 
-    fun getEpisode(episode: Int): Single<MovieModel> {
-        return service.getEpisode(API_KEY, MOVIE_TITLE, episode)
+    fun getEpisode(episode: String, season: Int): Single<MovieModel> {
+        return service.getEpisode(API_KEY, MOVIE_TITLE, episode, season)
     }
 
     companion object {

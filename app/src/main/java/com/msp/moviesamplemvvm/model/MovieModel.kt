@@ -1,9 +1,14 @@
 package com.msp.moviesamplemvvm.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity(tableName = "movie")
 class MovieModel {
-    
-     var title: String? = null
+
+     @PrimaryKey(autoGenerate = true)
+     var id: Int? = 0
+     var title: String? = ""
      var year: String? = null
      var rated: String? = null
      var released: String? = null
@@ -24,5 +29,4 @@ class MovieModel {
      var type: String? = null
      var totalSeasons: String? = null
      var response: String? = null
-
 }
