@@ -42,4 +42,7 @@
     <dimen name="default_elevation">4dp</dimen>
     <dimen name="progress_size">60dp</dimen>
 
+    <!--main activity-->
+    <dimen name="movie_info_layout_height">50dp</dimen>
+
 </resources>

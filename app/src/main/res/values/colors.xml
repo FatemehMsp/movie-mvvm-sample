@@ -5,6 +5,9 @@
     <color name="colorAccent">#722C8F</color>
 
     <color name="transparent">#00000000</color>
+    <color name="primaryText">#222</color>
+    <color name="secondaryText">#757575</color>
+    <color name="whiteText">#FFFFFF</color>
 
     <color name="yellow_app">#EB7D25</color>
     <color name="gary_app">#BABABA</color>

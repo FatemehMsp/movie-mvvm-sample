@@ -3,16 +3,183 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.MainActivity">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_main" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/mainLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/AVLoadingIndicatorView"
+            app:indicatorName="BallPulseIndicator"
+            app:indicatorColor="@color/colorAccent"
+            android:visibility="visible" />
+
+        <ScrollView
+            android:id="@+id/mainParent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintRight_toRightOf="@+id/toolbar"
+            app:layout_constraintLeft_toRightOf="@+id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/mainCardImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/distance_normal"
+                    app:cardElevation="2dp"
+                    app:cardCornerRadius="4dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/mainMovieImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </androidx.cardview.widget.CardView>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activity.MainActivity">
+                <TextView
+                    android:id="@+id/mainMovieTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mainCardImg"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/distance_normal"
+                    android:textSize="@dimen/textSize_medium"
+                    android:textColor="@color/primaryText"
+                    tools:text="Movie Title" />
+
+                <TextView
+                    android:id="@+id/mainMovieGenre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mainMovieTitle"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="@dimen/distance_normal"
+                    android:layout_marginLeft="@dimen/distance_normal"
+                    android:textSize="@dimen/textSize_small"
+                    android:textColor="@color/secondaryText"
+                    tools:text="Movie Genre" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mainMovieInfoLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mainMovieGenre"
+                    android:layout_marginTop="@dimen/distance_medium"
+                    android:layout_marginLeft="@dimen/distance_medium"
+                    android:layout_marginRight="@dimen/distance_medium"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        android:id="@+id/mainMovieYearTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSize_normal"
+                        android:textColor="@color/secondaryText"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/mainMovieCountryTxt"
+                        android:text="@string/movie_year" />
+
+                    <TextView
+                        android:id="@+id/mainMovieYear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSize_normal"
+                        android:textColor="@color/primaryText"
+                        app:layout_constraintTop_toBottomOf="@id/mainMovieYearTxt"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/mainMovieCountryTxt"
+                        tools:text="2019" />
 
 
-    
+                    <TextView
+                        android:id="@+id/mainMovieCountryTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSize_normal"
+                        android:textColor="@color/secondaryText"
+                        app:layout_constraintStart_toEndOf="@id/mainMovieYearTxt"
+                        app:layout_constraintEnd_toStartOf="@id/mainMovieLengthTxt"
+                        android:text="@string/movie_country" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/mainMovieCountry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSize_normal"
+                        android:textColor="@color/primaryText"
+                        app:layout_constraintTop_toBottomOf="@id/mainMovieCountryTxt"
+                        app:layout_constraintStart_toEndOf="@id/mainMovieYearTxt"
+                        app:layout_constraintEnd_toStartOf="@id/mainMovieLengthTxt"
+                        tools:text="USA" />
+
+                    <TextView
+                        android:id="@+id/mainMovieLengthTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSize_normal"
+                        android:textColor="@color/secondaryText"
+                        app:layout_constraintStart_toEndOf="@id/mainMovieCountryTxt"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/movie_length" />
+
+                    <TextView
+                        android:id="@+id/mainMovieLength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textSize_normal"
+                        android:textColor="@color/primaryText"
+                        app:layout_constraintTop_toBottomOf="@id/mainMovieLengthTxt"
+                        app:layout_constraintStart_toEndOf="@id/mainMovieCountryTxt"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="180" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/mainMovieSeasonTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/distance_normal"
+                    android:layout_below="@id/mainMovieInfoLayout"
+                    android:textSize="@dimen/textSize_medium"
+                    android:textColor="@color/primaryText"
+                    android:text="@string/movie_seasons" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mainMovieSeasonList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/distance_small"
+                    android:layout_marginRight="@dimen/distance_small"
+                    android:layout_below="@id/mainMovieSeasonTitle"
+                    android:scrollbars="none"
+                    tools:listitem="@layout/row_season_list"
+                    tools:itemCount="8" />
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
