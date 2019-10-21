@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="mainVM"
+            type="com.msp.moviesamplemvvm.ui.viewmodel.MainViewModel" />
+    </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,25 +22,25 @@
 
         <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/mainLoading"
+            style="@style/AVLoadingIndicatorView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/AVLoadingIndicatorView"
-            app:indicatorName="BallPulseIndicator"
+            android:visibility="@{mainVM.visibleLoading()}"
             app:indicatorColor="@color/colorAccent"
-            android:visibility="visible" />
+            app:indicatorName="BallPulseIndicator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
             android:id="@+id/mainParent"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:layout_constraintRight_toRightOf="@+id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/toolbar"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintRight_toRightOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -43,13 +51,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/distance_normal"
-                    app:cardElevation="2dp"
-                    app:cardCornerRadius="4dp">
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="2dp">
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/mainMovieImg"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@{mainVM.movieData.poster}" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -61,8 +70,9 @@
                     android:layout_below="@id/mainCardImg"
                     android:layout_centerHorizontal="true"
                     android:layout_margin="@dimen/distance_normal"
-                    android:textSize="@dimen/textSize_medium"
                     android:textColor="@color/primaryText"
+                    android:textSize="@dimen/textSize_medium"
+                    android:text="@{mainVM.movieData.title}"
                     tools:text="Movie Title" />
 
                 <TextView
@@ -71,19 +81,20 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/mainMovieTitle"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginRight="@dimen/distance_normal"
                     android:layout_marginLeft="@dimen/distance_normal"
-                    android:textSize="@dimen/textSize_small"
+                    android:layout_marginRight="@dimen/distance_normal"
                     android:textColor="@color/secondaryText"
-                    tools:text="Movie Genre" />
+                    android:textSize="@dimen/textSize_small"
+                    tools:text="Movie Genre"
+                    android:text="@{mainVM.movieData.genre}" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/mainMovieInfoLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/mainMovieGenre"
-                    android:layout_marginTop="@dimen/distance_medium"
                     android:layout_marginLeft="@dimen/distance_medium"
+                    android:layout_marginTop="@dimen/distance_medium"
                     android:layout_marginRight="@dimen/distance_medium"
                     tools:ignore="MissingConstraints">
 
@@ -91,65 +102,68 @@
                         android:id="@+id/mainMovieYearTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/textSize_normal"
+                        android:text="@string/movie_year"
                         android:textColor="@color/secondaryText"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toStartOf="@id/mainMovieCountryTxt"
-                        android:text="@string/movie_year" />
+                        app:layout_constraintStart_toStartOf="parent" />
 
                     <TextView
                         android:id="@+id/mainMovieYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/textSize_normal"
                         android:textColor="@color/primaryText"
-                        app:layout_constraintTop_toBottomOf="@id/mainMovieYearTxt"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toStartOf="@id/mainMovieCountryTxt"
-                        tools:text="2019" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/mainMovieYearTxt"
+                        tools:text="2019"
+                        android:text="@{mainVM.movieData.year}" />
 
 
                     <TextView
                         android:id="@+id/mainMovieCountryTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/textSize_normal"
+                        android:text="@string/movie_country"
                         android:textColor="@color/secondaryText"
-                        app:layout_constraintStart_toEndOf="@id/mainMovieYearTxt"
+                        android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toStartOf="@id/mainMovieLengthTxt"
-                        android:text="@string/movie_country" />
+                        app:layout_constraintStart_toEndOf="@id/mainMovieYearTxt" />
 
                     <TextView
                         android:id="@+id/mainMovieCountry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/textSize_normal"
                         android:textColor="@color/primaryText"
-                        app:layout_constraintTop_toBottomOf="@id/mainMovieCountryTxt"
-                        app:layout_constraintStart_toEndOf="@id/mainMovieYearTxt"
+                        android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toStartOf="@id/mainMovieLengthTxt"
-                        tools:text="USA" />
+                        app:layout_constraintStart_toEndOf="@id/mainMovieYearTxt"
+                        app:layout_constraintTop_toBottomOf="@id/mainMovieCountryTxt"
+                        tools:text="USA"
+                        android:text="@{mainVM.movieData.country}" />
 
                     <TextView
                         android:id="@+id/mainMovieLengthTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/textSize_normal"
+                        android:text="@string/movie_length"
                         android:textColor="@color/secondaryText"
-                        app:layout_constraintStart_toEndOf="@id/mainMovieCountryTxt"
+                        android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:text="@string/movie_length" />
+                        app:layout_constraintStart_toEndOf="@id/mainMovieCountryTxt" />
 
                     <TextView
                         android:id="@+id/mainMovieLength"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/textSize_normal"
                         android:textColor="@color/primaryText"
-                        app:layout_constraintTop_toBottomOf="@id/mainMovieLengthTxt"
-                        app:layout_constraintStart_toEndOf="@id/mainMovieCountryTxt"
+                        android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toEndOf="parent"
-                        tools:text="180" />
+                        app:layout_constraintStart_toEndOf="@id/mainMovieCountryTxt"
+                        app:layout_constraintTop_toBottomOf="@id/mainMovieLengthTxt"
+                        tools:text="180"
+                        android:text="@{mainVM.movieData.runtime}" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -158,22 +172,22 @@
                     android:id="@+id/mainMovieSeasonTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/distance_normal"
                     android:layout_below="@id/mainMovieInfoLayout"
-                    android:textSize="@dimen/textSize_medium"
+                    android:layout_margin="@dimen/distance_normal"
+                    android:text="@string/movie_seasons"
                     android:textColor="@color/primaryText"
-                    android:text="@string/movie_seasons" />
+                    android:textSize="@dimen/textSize_medium" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/mainMovieSeasonList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/mainMovieSeasonTitle"
                     android:layout_marginLeft="@dimen/distance_small"
                     android:layout_marginRight="@dimen/distance_small"
-                    android:layout_below="@id/mainMovieSeasonTitle"
                     android:scrollbars="none"
-                    tools:listitem="@layout/row_season_list"
-                    tools:itemCount="8" />
+                    tools:itemCount="8"
+                    tools:listitem="@layout/row_season_list" />
 
             </RelativeLayout>
 
