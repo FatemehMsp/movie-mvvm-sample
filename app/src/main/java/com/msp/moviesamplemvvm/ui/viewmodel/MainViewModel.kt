@@ -20,14 +20,14 @@ class MainViewModel : ViewModel() {
     private val TAG: String = MainViewModel::class.java.simpleName
     val movieData: MutableLiveData<MovieModel> by lazy { MutableLiveData<MovieModel>() }
     private val disposables = CompositeDisposable()
-    private var loadingProgressBar = false
+    val loadingProgressBar: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
 
     init {
         getMovieData()
     }
 
     private fun getMovieData() {
-        loadingProgressBar = true
+        loadingProgressBar.postValue(true)
         disposables.add(
             ApiClient().getMovieData()
                 .subscribeOn(Schedulers.io())
@@ -35,21 +35,19 @@ class MainViewModel : ViewModel() {
                 .subscribeWith(object : DisposableSingleObserver<MovieModel>() {
                     override fun onSuccess(t: MovieModel) {
                         Log.e(TAG, "onSuccess: ")
-                        loadingProgressBar = false
+                        loadingProgressBar.postValue(false)
                         movieData.postValue(t)
                         AppDatabase.getInstance().movieDao().insert(t)
                     }
 
                     override fun onError(e: Throwable) {
-                        loadingProgressBar = true
+                        loadingProgressBar.postValue(false)
                         Log.d(TAG, "onError: " + e.message)
                     }
                 }
                 )
         )
     }
-
-    fun visibleLoading(): Boolean = loadingProgressBar
 
     override fun onCleared() {
         super.onCleared()
