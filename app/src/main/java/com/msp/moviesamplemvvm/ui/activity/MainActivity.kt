@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.msp.moviesamplemvvm.R
 import com.msp.moviesamplemvvm.databinding.ActivityMainBinding
-import com.msp.moviesamplemvvm.ui.viewmodel.MainViewModel
+import com.msp.moviesamplemvvm.viewmodel.MainViewModel
 
 
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.msp.moviesamplemvvm.ui.viewmodel
+package com.msp.moviesamplemvvm.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -34,7 +34,7 @@ class MainViewModel : ViewModel() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<MovieModel>() {
                     override fun onSuccess(t: MovieModel) {
-                        Log.e(TAG, "onSuccess: ")
+                        Log.d(TAG, "onSuccess")
                         loadingProgressBar.postValue(false)
                         movieData.postValue(t)
                         AppDatabase.getInstance().movieDao().insert(t)
@@ -42,7 +42,7 @@ class MainViewModel : ViewModel() {
 
                     override fun onError(e: Throwable) {
                         loadingProgressBar.postValue(false)
-                        Log.d(TAG, "onError: " + e.message)
+                        Log.e(TAG, "onError: " + e.message)
                     }
                 }
                 )
