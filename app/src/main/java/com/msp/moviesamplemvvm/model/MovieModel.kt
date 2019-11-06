@@ -1,6 +1,7 @@
 package com.msp.moviesamplemvvm.model
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "movie")
@@ -29,4 +30,6 @@ class MovieModel {
      var Type: String? = ""
      var TotalSeasons: String? = ""
      var Response: String? = ""
+     @Ignore
+     var seasonList: MutableList<SeasonModel> = arrayListOf()
 }

@@ -8,6 +8,7 @@ import com.msp.moviesamplemvvm.BR
 import com.msp.moviesamplemvvm.databinding.RowSeasonListBinding
 import com.msp.moviesamplemvvm.model.SeasonModel
 import com.msp.moviesamplemvvm.util.DataBindingViewHolder
+import kotlinx.android.synthetic.main.row_season_list.view.*
 
 /**
  * Created by Fatemeh Movassaghpour on 11/6/2019.
@@ -28,6 +29,9 @@ class SeasonListAdapter(private val items: MutableList<SeasonModel>) :
 
     override fun onBindViewHolder(holder: SeasonHolder, position: Int) {
         holder.onBind(items[position])
+        holder.dataBinding.root.seasonParent.setOnClickListener {
+
+        }
     }
 
     inner class SeasonHolder(dataBinding: ViewDataBinding) :
