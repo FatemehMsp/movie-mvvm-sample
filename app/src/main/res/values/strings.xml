@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">MovieSampleMVVM</string>
 
+    <!--main_activity-->
     <string name="movie_year">Year</string>
     <string name="movie_country">Country</string>
     <string name="movie_length">Length</string>
     <string name="movie_seasons">Seasons</string>
+
+    <!--row_episode_list-->
+    <string name="episode_title">Title : </string>
+    <string name="episode_number">Episode : </string>
+    <string name="episode_released">Released : </string>
+    <string name="episode_imdbrating">IMD : </string>
 
 </resources>

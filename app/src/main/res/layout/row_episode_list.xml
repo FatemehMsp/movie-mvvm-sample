@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="episode"
+            type="com.msp.moviesamplemvvm.model.EpisodeModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/distance_small"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="2dp"
+        android:id="@+id/episodeParent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/distance_normal">
+
+            <TextView
+                android:id="@+id/episodeTitleTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/secondaryText"
+                android:text="@string/episode_title" />
+
+            <TextView
+                android:id="@+id/episodeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/distance_small"
+                android:layout_toRightOf="@id/episodeTitleTxt"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/primaryText"
+                android:text="@{episode.title}"
+                tools:text="@string/episode_title" />
+
+            <TextView
+                android:id="@+id/episodeNumberTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distance_smaller"
+                android:layout_below="@id/episodeTitleTxt"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/secondaryText"
+                android:text="@string/episode_number" />
+
+            <TextView
+                android:id="@+id/episodeNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/distance_small"
+                android:layout_marginTop="@dimen/distance_smaller"
+                android:layout_below="@id/episodeTitleTxt"
+                android:layout_toRightOf="@id/episodeNumberTxt"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/primaryText"
+                android:text="@{episode.episode}"
+                tools:text="3" />
+
+            <TextView
+                android:id="@+id/episodeReleasedTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distance_smaller"
+                android:layout_below="@id/episodeNumberTxt"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/secondaryText"
+                android:text="@string/episode_released" />
+
+            <TextView
+                android:id="@+id/episodeReleased"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/distance_small"
+                android:layout_marginTop="@dimen/distance_smaller"
+                android:layout_below="@id/episodeNumberTxt"
+                android:layout_toRightOf="@id/episodeReleasedTxt"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/primaryText"
+                android:text="@{episode.released}"
+                tools:text="3" />
+
+            <TextView
+                android:id="@+id/episodeIMDTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/distance_smaller"
+                android:layout_below="@id/episodeReleasedTxt"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/secondaryText"
+                android:text="@string/episode_imdbrating" />
+
+            <TextView
+                android:id="@+id/episodeIMD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/distance_small"
+                android:layout_marginTop="@dimen/distance_smaller"
+                android:layout_below="@id/episodeReleasedTxt"
+                android:layout_toRightOf="@id/episodeIMDTxt"
+                android:textSize="@dimen/textSize_normal"
+                android:textColor="@color/primaryText"
+                android:text="@{episode.imdbRating}"
+                tools:text="3" />
+
+            <ImageView
+                android:layout_width="@dimen/iconSize_large"
+                android:layout_height="@dimen/iconSize_large"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/ic_arrow_right_black" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

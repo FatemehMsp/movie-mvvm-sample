@@ -8,11 +8,10 @@ class EpisodeModel {
 
      @PrimaryKey(autoGenerate = true)
      var id: Int? = 0
-     var title: String? = null
-     var released: String? = null
-     var episode: String? = null
+    var Title: String? = null
+    var Released: String? = null
+    var Episode: String? = null
      var season: String? = null
      var imdbRating: String? = null
-     var imdbID: String? = null
-    
+
 }
