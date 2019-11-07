@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.movieData.observe(this, Observer {
             binding.mainMovieSeasonList.layoutManager =
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            binding.mainMovieSeasonList.adapter = SeasonListAdapter(it.seasonList)
+            binding.mainMovieSeasonList.adapter = SeasonListAdapter(this, it.seasonList)
         })
     }
 }

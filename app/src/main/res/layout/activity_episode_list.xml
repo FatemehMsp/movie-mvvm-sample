@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <data>
+
+        <variable
+            name="episodeLiatVM"
+            type="com.msp.moviesamplemvvm.viewmodel.EpisodeListViewModel" />
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <include layout="@layout/toolbar_main" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:isVisible="@{episodeLiatVM.loadingProgressBar}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/episodeList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbarMain"
             android:layout_marginLeft="@dimen/distance_small"
             android:layout_marginRight="@dimen/distance_small"
             android:scrollbars="none"
             tools:itemCount="8"
             tools:listitem="@layout/row_episode_list" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>

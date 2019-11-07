@@ -9,8 +9,8 @@ import com.msp.moviesamplemvvm.util.GsonDataReader
  */
 class SeasonModel {
 
-    var id: Int? = 0
-    var title: String? = ""
+    var id: Int = 0
+    var title: String = ""
 
     fun getSeasonFromJson(context: Context): MutableList<SeasonModel> {
         return Gson().fromJson<MutableList<SeasonModel>>(

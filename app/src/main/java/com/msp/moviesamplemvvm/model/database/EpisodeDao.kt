@@ -12,8 +12,8 @@ import io.reactivex.Single
 interface EpisodeDao : BaseDao<EpisodeModel> {
 
     @Query("select * from episode where season=:season")
-    fun getSeasonEpisodes(season: String): Single<MutableList<EpisodeModel>>
+    fun getSeasonEpisodes(season: Int): Single<MutableList<EpisodeModel>>
 
     @Query("delete from episode where season=:season")
-    fun deleteSeasonEpisodes(season: String)
+    fun deleteSeasonEpisodes(season: Int)
 }

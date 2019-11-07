@@ -2,10 +2,10 @@ package com.msp.moviesamplemvvm.model
 
 class SeasonResponse {
 
-    private var title: String? = null
-    private var season: String? = null
-    private var totalSeasons: String? = null
-    private var episodes: MutableList<EpisodeModel>? = arrayListOf()
-    private var response: String? = null
+    var Title: String? = null
+    var Season: String? = null
+    var totalSeasons: String? = null
+    var Episodes: MutableList<EpisodeModel>? = arrayListOf()
+    var Response: String? = null
 
 }

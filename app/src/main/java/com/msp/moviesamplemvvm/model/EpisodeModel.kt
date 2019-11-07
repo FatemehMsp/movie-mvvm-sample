@@ -11,7 +11,7 @@ class EpisodeModel {
     var Title: String? = null
     var Released: String? = null
     var Episode: String? = null
-     var season: String? = null
+    var season: Int = 0
      var imdbRating: String? = null
 
 }
