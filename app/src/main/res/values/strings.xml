@@ -13,4 +13,11 @@
     <string name="episode_released">Released : </string>
     <string name="episode_imdbrating">IMD : </string>
 
+    <!--episode detail activity-->
+    <string name="episode_director">Director : </string>
+    <string name="episode_writer">Writer : </string>
+    <string name="episode_actors">Actors : </string>
+    <string name="episode_plot">Plot : </string>
+
+
 </resources>
