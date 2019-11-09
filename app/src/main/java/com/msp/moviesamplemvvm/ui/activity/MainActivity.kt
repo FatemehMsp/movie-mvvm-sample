@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.mainVM = viewModel
-
+        binding.lifecycleOwner = this
 
         viewModel.movieData.observe(this, Observer {
             binding.mainMovieSeasonList.layoutManager =

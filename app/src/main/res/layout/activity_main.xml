@@ -54,7 +54,8 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/mainMovieImg"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="300dp"
+                        android:scaleType="fitXY"
                         app:srcCompat="@{String.valueOf(mainVM.movieData.poster)}" />
 
                 </androidx.cardview.widget.CardView>

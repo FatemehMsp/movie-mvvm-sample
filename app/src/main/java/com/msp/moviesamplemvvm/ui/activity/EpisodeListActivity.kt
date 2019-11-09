@@ -45,11 +45,12 @@ class EpisodeListActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(
             this,
-            ViewModelFactory("$seasonId")
+            ViewModelFactory(seasonId)
         ).get(EpisodeListViewModel::class.java)
         val binding: ActivityEpisodeListBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_episode_list)
         binding.episodeLiatVM = viewModel
+        binding.lifecycleOwner = this
 
         initToolbar()
 

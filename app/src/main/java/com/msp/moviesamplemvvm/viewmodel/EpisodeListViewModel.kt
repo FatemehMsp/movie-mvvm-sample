@@ -18,14 +18,14 @@ class EpisodeListViewModel(private val seasonId: Int) : ViewModel() {
     private val TAG: String = EpisodeListViewModel::class.java.simpleName
     val episodes: MutableLiveData<MutableList<EpisodeModel>> by lazy { MutableLiveData<MutableList<EpisodeModel>>() }
     private val disposables = CompositeDisposable()
-    val loadingProgressBar: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
+    val episodeLoadingProgressBar: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
 
     init {
         getSeasonEpisodes()
     }
 
     private fun getSeasonEpisodes() {
-        loadingProgressBar.postValue(true)
+        episodeLoadingProgressBar.postValue(true)
         disposables.add(
             ApiClient().getSeason(seasonId)
                 .subscribeOn(Schedulers.io())
@@ -33,12 +33,12 @@ class EpisodeListViewModel(private val seasonId: Int) : ViewModel() {
                 .subscribeWith(object : DisposableSingleObserver<SeasonResponse>() {
                     override fun onSuccess(seasonResponse: SeasonResponse) {
                         Log.d(TAG, "onSuccess")
-                        loadingProgressBar.postValue(false)
+                        episodeLoadingProgressBar.postValue(false)
                         setSeasonForEpisode(seasonResponse)
                     }
 
                     override fun onError(e: Throwable) {
-                        loadingProgressBar.postValue(false)
+                        episodeLoadingProgressBar.postValue(false)
                         Log.e(TAG, "onError: " + e.message)
                     }
                 }
