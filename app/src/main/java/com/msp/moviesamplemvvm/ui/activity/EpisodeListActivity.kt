@@ -13,7 +13,7 @@ import com.msp.moviesamplemvvm.R
 import com.msp.moviesamplemvvm.databinding.ActivityEpisodeListBinding
 import com.msp.moviesamplemvvm.ui.adapter.EpisodeListAdapter
 import com.msp.moviesamplemvvm.viewmodel.EpisodeListViewModel
-import com.msp.moviesamplemvvm.viewmodel.ViewModelFactory
+import com.msp.moviesamplemvvm.viewmodel.EpisodeListViewModelFactory
 import kotlinx.android.synthetic.main.toolbar_main.*
 
 /**
@@ -45,8 +45,9 @@ class EpisodeListActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(
             this,
-            ViewModelFactory(seasonId)
+            EpisodeListViewModelFactory(seasonId)
         ).get(EpisodeListViewModel::class.java)
+
         val binding: ActivityEpisodeListBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_episode_list)
         binding.episodeLiatVM = viewModel
