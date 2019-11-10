@@ -1,7 +1,6 @@
 package com.msp.moviesamplemvvm.util
 
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
@@ -16,7 +15,6 @@ object BindingAdapters {
     @BindingAdapter("app:srcCompat")
     @JvmStatic
     fun setPosterFromUrl(image: ImageView, imagePath: String) {
-        Log.i("imagePath", imagePath + "QQQQQQQQQQQQQQQ")
         if (!TextUtils.isEmpty(imagePath)) {
             try {
                 Glide.with(image.context).load(imagePath)

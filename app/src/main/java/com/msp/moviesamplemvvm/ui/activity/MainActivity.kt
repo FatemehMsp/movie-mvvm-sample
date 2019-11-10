@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.msp.moviesamplemvvm.R
 import com.msp.moviesamplemvvm.databinding.ActivityMainBinding
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.movieData.observe(this, Observer {
             binding.mainMovieSeasonList.layoutManager =
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            binding.mainMovieSeasonList.itemAnimator = DefaultItemAnimator()
+            binding.mainMovieSeasonList.isNestedScrollingEnabled = false
             binding.mainMovieSeasonList.adapter = SeasonListAdapter(this, it.seasonList)
         })
     }

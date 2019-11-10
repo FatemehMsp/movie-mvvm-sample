@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="episodeLiatVM"
+            name="episodeListVM"
             type="com.msp.moviesamplemvvm.viewmodel.EpisodeListViewModel" />
     </data>
 
@@ -34,7 +34,7 @@
             android:layout_centerInParent="true"
             app:indicatorColor="@color/colorAccent"
             app:indicatorName="BallPulseIndicator"
-            app:isVisible="@{episodeLiatVM.episodeLoadingProgressBar}" />
+            app:isVisible="@{episodeListVM.episodeLoadingProgressBar}" />
 
     </RelativeLayout>
 

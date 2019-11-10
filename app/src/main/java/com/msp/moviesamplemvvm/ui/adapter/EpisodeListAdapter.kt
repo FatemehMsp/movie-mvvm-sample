@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.msp.moviesamplemvvm.BR
 import com.msp.moviesamplemvvm.databinding.RowEpisodeListBinding
 import com.msp.moviesamplemvvm.model.EpisodeModel
+import com.msp.moviesamplemvvm.ui.activity.EpisodeDetailActivity
 import com.msp.moviesamplemvvm.util.DataBindingViewHolder
 import kotlinx.android.synthetic.main.row_episode_list.view.*
 
@@ -30,7 +31,14 @@ class EpisodeListAdapter(val context: Context, private val items: MutableList<Ep
 
     override fun onBindViewHolder(holder: EpisodeHolder, position: Int) {
         holder.onBind(items[position])
-        holder.dataBinding.root.episodeParent.setOnClickListener { }
+        holder.dataBinding.root.episodeParent.setOnClickListener {
+            context.startActivity(
+                EpisodeDetailActivity.createIntent(
+                    context, items[position].season, items[position].Episode!!,
+                    items[position].Title!!
+                )
+            )
+        }
     }
 
     inner class EpisodeHolder(dataBinding: ViewDataBinding) :
