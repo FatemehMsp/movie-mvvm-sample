@@ -50,7 +50,7 @@ class EpisodeDetailActivity : AppCompatActivity() {
 
         val viewModel = ViewModelProvider(
             this,
-            ViewModelFactory(seasonId, episode)
+            ViewModelFactory(seasonId, episode, episodeTitle)
         ).get(EpisodeDetailViewModel::class.java)
 
         val binding: ActivityEpisodeDetailBinding =
@@ -59,7 +59,6 @@ class EpisodeDetailActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         initToolbar()
-
     }
 
     private fun processIntent() {
