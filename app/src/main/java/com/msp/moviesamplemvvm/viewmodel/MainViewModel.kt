@@ -4,13 +4,13 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.msp.moviesamplemvvm.R
 import com.msp.moviesamplemvvm.model.MovieModel
 import com.msp.moviesamplemvvm.model.SeasonModel
 import com.msp.moviesamplemvvm.model.database.AppDatabase
 import com.msp.moviesamplemvvm.network.ApiClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 
@@ -24,37 +24,54 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val disposables = CompositeDisposable()
     val loadingProgressBar: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
     private val context = application.applicationContext
+    val message: MutableLiveData<Int> by lazy { MutableLiveData<Int>() }
 
     init {
-        getMovieData(SeasonModel().getSeasonFromJson(context))
+        getMovieData()
     }
 
-    private fun getMovieData(seasons: MutableList<SeasonModel>) {
+    private fun getMovieData() {
         loadingProgressBar.postValue(true)
         disposables.add(
             ApiClient().getMovieData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSingleObserver<MovieModel>() {
-                    override fun onSuccess(t: MovieModel) {
-                        Log.d(TAG, "onSuccess")
-                        loadingProgressBar.postValue(false)
-                        AppDatabase.getInstance().movieDao().insert(t)
-                        t.seasonList = seasons
-                        movieData.postValue(t)
-                    }
-
-                    override fun onError(e: Throwable) {
-                        loadingProgressBar.postValue(false)
-                        Log.e(TAG, "onError: " + e.message)
-                    }
-                }
-                )
+                .subscribe(this::onSuccess, this::onError)
         )
+    }
+
+    private fun onSuccess(movieModel: MovieModel) {
+        Log.d(TAG, "onSuccess")
+        message.postValue(R.string.message_online)
+        loadingProgressBar.postValue(false)
+        AppDatabase.getInstance().movieDao().deleteMovieByTitle(MOVIE_TITLE)
+        AppDatabase.getInstance().movieDao().insert(movieModel)
+        movieModel.seasonList = SeasonModel().getSeasonFromJson(context)
+        movieData.postValue(movieModel)
+    }
+
+    private fun onError(e: Throwable) {
+        Log.e(TAG, "onError: " + e.message)
+        AppDatabase.getInstance().movieDao().getMovieByTitle(MOVIE_TITLE)?.let {
+            message.postValue(R.string.message_offline)
+            it.seasonList = SeasonModel().getSeasonFromJson(context)
+            movieData.postValue(it)
+            loadingProgressBar.postValue(false)
+        } ?: notNetworkConnection()
+
+    }
+
+    private fun notNetworkConnection() {
+        message.postValue(R.string.message_not_network_connection)
+        loadingProgressBar.postValue(true)
     }
 
     override fun onCleared() {
         super.onCleared()
         disposables.clear()
+    }
+
+    companion object {
+        const val MOVIE_TITLE = "Game of Thrones"
     }
 }

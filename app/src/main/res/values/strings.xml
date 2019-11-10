@@ -19,5 +19,9 @@
     <string name="episode_actors">Actors : </string>
     <string name="episode_plot">Plot : </string>
 
+    <!--message-->
+    <string name="message_offline">offline mode...</string>
+    <string name="message_online">online mode...</string>
+    <string name="message_not_network_connection">please connect to network!!</string>
 
 </resources>

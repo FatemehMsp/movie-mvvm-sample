@@ -1,6 +1,7 @@
 package com.msp.moviesamplemvvm.ui.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -29,6 +30,10 @@ class MainActivity : AppCompatActivity() {
             binding.mainMovieSeasonList.itemAnimator = DefaultItemAnimator()
             binding.mainMovieSeasonList.isNestedScrollingEnabled = false
             binding.mainMovieSeasonList.adapter = SeasonListAdapter(this, it.seasonList)
+        })
+
+        viewModel.message.observe(this, Observer {
+            Toast.makeText(this, getString(it), Toast.LENGTH_LONG).show()
         })
     }
 }
