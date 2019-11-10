@@ -42,9 +42,9 @@ class EpisodeDetailViewModel(
     private fun onSuccess(movieModel: MovieModel) {
         Log.d(TAG, "onSuccess")
         loadingProgressBar.postValue(false)
-        AppDatabase.getInstance().movieDao().deleteMovieByTitle(episodeTitle)
-        AppDatabase.getInstance().movieDao().insert(movieModel)
+        AppDatabase.getInstance().movieDao().deleteMovieByTitle(movieModel.Title!!)
         movieData.postValue(movieModel)
+        AppDatabase.getInstance().movieDao().insert(movieModel)
     }
 
     private fun onError(e: Throwable) {
@@ -53,8 +53,6 @@ class EpisodeDetailViewModel(
             movieData.postValue(it)
             loadingProgressBar.postValue(false)
         } ?: loadingProgressBar.postValue(true)
-
-
     }
 
 

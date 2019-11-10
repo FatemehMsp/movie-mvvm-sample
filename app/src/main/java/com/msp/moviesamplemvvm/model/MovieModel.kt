@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 class MovieModel {
 
      @PrimaryKey(autoGenerate = true)
-     var id: Int? = 0
+     var id: Int = 0
      var Title: String? = ""
      var Year: String? = ""
      var Rated: String? = ""

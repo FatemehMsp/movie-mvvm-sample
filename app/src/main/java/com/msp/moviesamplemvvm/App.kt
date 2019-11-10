@@ -2,6 +2,8 @@ package com.msp.moviesamplemvvm
 
 import android.app.Application
 import android.content.Context
+import io.reactivex.plugins.RxJavaPlugins
+
 
 class App : Application() {
 
@@ -19,6 +21,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        RxJavaPlugins.setErrorHandler { throwable -> } // nothing or some logging
     }
 
 }

@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 class EpisodeModel {
 
      @PrimaryKey(autoGenerate = true)
-     var id: Int? = 0
+     var id: Int = 0
     var Title: String? = null
     var Released: String? = null
     var Episode: String? = null

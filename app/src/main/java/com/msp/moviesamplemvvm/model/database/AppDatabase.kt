@@ -16,7 +16,7 @@ import com.msp.moviesamplemvvm.model.MovieModel
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun movieDao(): MovieDao
-    abstract fun EpisodeDao(): EpisodeDao
+    abstract fun episodeDao(): EpisodeDao
 
     companion object {
 

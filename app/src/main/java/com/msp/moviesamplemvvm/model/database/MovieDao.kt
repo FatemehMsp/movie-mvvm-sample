@@ -10,9 +10,9 @@ import com.msp.moviesamplemvvm.model.MovieModel
 @Dao
 interface MovieDao : BaseDao<MovieModel> {
 
-    @Query("select * from movie where title=:title")
+    @Query("select * from movie where Title=:title")
     fun getMovieByTitle(title: String): MovieModel?
 
-    @Query("delete from movie where title=:title")
+    @Query("delete from movie where Title=:title")
     fun deleteMovieByTitle(title: String)
 }
