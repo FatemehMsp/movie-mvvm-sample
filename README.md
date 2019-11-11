@@ -4,7 +4,8 @@ This is a sample Android application uses [omdbapi](http://www.omdbapi.com) Api,
 
 # Screenshot
 
-![Screenshot_1573479921](https://user-images.githubusercontent.com/35519598/68593253-3d712c80-04aa-11ea-8724-06b8098cc8ff.png)
+![Screenshot_1573479921](https://user-images.githubusercontent.com/35519598/68593539-ee77c700-04aa-11ea-970f-e9e2ba359c17.png)
+
 
 Libraries used on the sample project
 ------------------------------------
