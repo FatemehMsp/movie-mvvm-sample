@@ -7,7 +7,7 @@
 
         <variable
             name="episodeListVM"
-            type="com.msp.moviesamplemvvm.viewmodel.EpisodeListViewModel" />
+            type="com.github.fatemehmsp.movie.viewmodel.EpisodeListViewModel" />
     </data>
 
     <RelativeLayout

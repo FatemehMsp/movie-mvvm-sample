@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MovieSampleMVVM</string>
+    <string name="app_name">Movie</string>
 
     <!--main_activity-->
     <string name="movie_year">Year</string>

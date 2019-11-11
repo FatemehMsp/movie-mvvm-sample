@@ -6,7 +6,7 @@
     <data>
         <variable
             name="season"
-            type="com.msp.moviesamplemvvm.model.SeasonModel" />
+            type="com.github.fatemehmsp.movie.model.SeasonModel" />
     </data>
 
     <androidx.cardview.widget.CardView

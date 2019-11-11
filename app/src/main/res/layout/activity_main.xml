@@ -7,14 +7,14 @@
 
         <variable
             name="mainVM"
-            type="com.msp.moviesamplemvvm.viewmodel.MainViewModel" />
+            type="com.github.fatemehmsp.movie.viewmodel.MainViewModel" />
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.MainActivity">
+        tools:context="com.github.fatemehmsp.movie.ui.activity.MainActivity">
 
         <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/mainLoading"
