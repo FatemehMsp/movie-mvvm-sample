@@ -4,42 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="season"
             type="com.github.fatemehmsp.movie.model.SeasonModel" />
     </data>
 
     <androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardElevation="2dp"
-    app:cardCornerRadius="4dp"
-    android:layout_margin="@dimen/distance_small"
-    android:id="@+id/seasonParent">
-
-    <RelativeLayout
+        android:id="@+id/seasonParent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/distance_small"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp">
 
-        <TextView
-            android:id="@+id/seasonTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/distance_normal"
-            android:textSize="@dimen/textSize_normal"
-            android:textColor="@color/black_app"
-            android:text="@{season.title}"
-            tools:text="Season 1" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="@dimen/iconSize_large"
-            android:layout_height="@dimen/iconSize_large"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/distance_normal"
-            app:srcCompat="@drawable/ic_arrow_right_black" />
+            <TextView
+                android:id="@+id/seasonTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/distance_normal"
+                android:text="@{season.title}"
+                android:textColor="@color/black_app"
+                android:textSize="@dimen/textSize_normal"
+                tools:text="Season 1" />
 
-    </RelativeLayout>
+            <ImageView
+                android:layout_width="@dimen/iconSize_large"
+                android:layout_height="@dimen/iconSize_large"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/distance_normal"
+                app:srcCompat="@drawable/ic_arrow_right_black" />
 
-</androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 </layout>

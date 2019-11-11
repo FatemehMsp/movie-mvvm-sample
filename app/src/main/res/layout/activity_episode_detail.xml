@@ -21,9 +21,9 @@
             style="@style/AVLoadingIndicatorView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:isVisible="@{episodeDetailVM.loadingProgressBar}"
             app:indicatorColor="@color/colorAccent"
             app:indicatorName="BallPulseIndicator"
+            app:isVisible="@{episodeDetailVM.loadingProgressBar}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,9 +71,9 @@
                     android:layout_below="@id/episodeCardImg"
                     android:layout_centerHorizontal="true"
                     android:layout_margin="@dimen/distance_normal"
+                    android:text="@{episodeDetailVM.movieData.title}"
                     android:textColor="@color/primaryText"
                     android:textSize="@dimen/textSize_medium"
-                    android:text="@{episodeDetailVM.movieData.title}"
                     tools:text="Movie Title" />
 
                 <TextView
@@ -84,10 +84,10 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/distance_normal"
                     android:layout_marginRight="@dimen/distance_normal"
+                    android:text="@{episodeDetailVM.movieData.genre}"
                     android:textColor="@color/secondaryText"
                     android:textSize="@dimen/textSize_small"
-                    tools:text="Movie Genre"
-                    android:text="@{episodeDetailVM.movieData.genre}" />
+                    tools:text="Movie Genre" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/episodeInfoLayout"
@@ -114,13 +114,13 @@
                         android:id="@+id/episodeYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{episodeDetailVM.movieData.year}"
                         android:textColor="@color/primaryText"
                         android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toStartOf="@id/episodeCountryTxt"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/episodeYearTxt"
-                        tools:text="2019"
-                        android:text="@{episodeDetailVM.movieData.year}" />
+                        tools:text="2019" />
 
 
                     <TextView
@@ -137,13 +137,13 @@
                         android:id="@+id/episodeCountry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{episodeDetailVM.movieData.country}"
                         android:textColor="@color/primaryText"
                         android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toStartOf="@id/episodeLengthTxt"
                         app:layout_constraintStart_toEndOf="@id/episodeYearTxt"
                         app:layout_constraintTop_toBottomOf="@id/episodeCountryTxt"
-                        tools:text="USA"
-                        android:text="@{episodeDetailVM.movieData.country}" />
+                        tools:text="USA" />
 
                     <TextView
                         android:id="@+id/episodeLengthTxt"
@@ -159,13 +159,13 @@
                         android:id="@+id/episodeLength"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{episodeDetailVM.movieData.runtime}"
                         android:textColor="@color/primaryText"
                         android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/episodeCountryTxt"
                         app:layout_constraintTop_toBottomOf="@id/episodeLengthTxt"
-                        tools:text="180"
-                        android:text="@{episodeDetailVM.movieData.runtime}" />
+                        tools:text="180" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -176,21 +176,21 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/episodeInfoLayout"
                     android:layout_margin="@dimen/distance_normal"
-                    android:textSize="@dimen/textSize_normal"
+                    android:text="@string/episode_director"
                     android:textColor="@color/secondaryText"
-                    android:text="@string/episode_director" />
+                    android:textSize="@dimen/textSize_normal" />
 
                 <TextView
                     android:id="@+id/episodeDirector"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/episodeInfoLayout"
+                    android:layout_alignBaseline="@id/episodeDirectorTxt"
                     android:layout_marginRight="@dimen/distance_normal"
                     android:layout_toRightOf="@id/episodeDirectorTxt"
-                    android:layout_alignBaseline="@id/episodeDirectorTxt"
-                    android:textSize="@dimen/textSize_normal"
-                    android:textColor="@color/primaryText"
                     android:text="@{episodeDetailVM.movieData.director}"
+                    android:textColor="@color/primaryText"
+                    android:textSize="@dimen/textSize_normal"
                     tools:text="Director" />
 
                 <!--episodeWriter-->
@@ -200,21 +200,21 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/episodeDirector"
                     android:layout_margin="@dimen/distance_normal"
-                    android:textSize="@dimen/textSize_normal"
+                    android:text="@string/episode_writer"
                     android:textColor="@color/secondaryText"
-                    android:text="@string/episode_writer" />
+                    android:textSize="@dimen/textSize_normal" />
 
                 <TextView
                     android:id="@+id/episodeWriter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/episodeDirector"
+                    android:layout_alignBaseline="@id/episodeWriterTxt"
                     android:layout_marginRight="@dimen/distance_normal"
                     android:layout_toRightOf="@id/episodeWriterTxt"
-                    android:layout_alignBaseline="@id/episodeWriterTxt"
-                    android:textSize="@dimen/textSize_normal"
-                    android:textColor="@color/primaryText"
                     android:text="@{episodeDetailVM.movieData.writer}"
+                    android:textColor="@color/primaryText"
+                    android:textSize="@dimen/textSize_normal"
                     tools:text="George R.R. Martin (based on \A Song of Ice and Fire\ by), David Benioff (created by), D.B. Weiss (created by), George R.R. Martin (written for television by" />
 
                 <!--episodeActors-->
@@ -224,21 +224,21 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/episodeWriter"
                     android:layout_margin="@dimen/distance_normal"
-                    android:textSize="@dimen/textSize_normal"
+                    android:text="@string/episode_actors"
                     android:textColor="@color/secondaryText"
-                    android:text="@string/episode_actors" />
+                    android:textSize="@dimen/textSize_normal" />
 
                 <TextView
                     android:id="@+id/episodeActors"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/episodeWriter"
+                    android:layout_alignBaseline="@id/episodeActorsTxt"
                     android:layout_marginRight="@dimen/distance_normal"
                     android:layout_toRightOf="@id/episodeActorsTxt"
-                    android:layout_alignBaseline="@id/episodeActorsTxt"
-                    android:textSize="@dimen/textSize_normal"
-                    android:textColor="@color/primaryText"
                     android:text="@{episodeDetailVM.movieData.actors}"
+                    android:textColor="@color/primaryText"
+                    android:textSize="@dimen/textSize_normal"
                     tools:text="Actors" />
 
 
@@ -249,21 +249,21 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/episodeActors"
                     android:layout_margin="@dimen/distance_normal"
-                    android:textSize="@dimen/textSize_normal"
+                    android:text="@string/episode_plot"
                     android:textColor="@color/secondaryText"
-                    android:text="@string/episode_plot" />
+                    android:textSize="@dimen/textSize_normal" />
 
                 <TextView
                     android:id="@+id/episodePlot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/episodeActors"
+                    android:layout_alignBaseline="@id/episodePlotTxt"
                     android:layout_marginRight="@dimen/distance_normal"
                     android:layout_toRightOf="@id/episodePlotTxt"
-                    android:layout_alignBaseline="@id/episodePlotTxt"
-                    android:textSize="@dimen/textSize_normal"
-                    android:textColor="@color/primaryText"
                     android:text="@{episodeDetailVM.movieData.plot}"
+                    android:textColor="@color/primaryText"
+                    android:textSize="@dimen/textSize_normal"
                     tools:text="Plot" />
 
 

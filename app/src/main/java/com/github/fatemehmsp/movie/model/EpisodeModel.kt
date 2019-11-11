@@ -7,8 +7,8 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "episode")
 class EpisodeModel {
 
-     @PrimaryKey(autoGenerate = true)
-     var id: Int = 0
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0
     @SerializedName("Title")
     var title: String? = null
     @SerializedName("Released")
@@ -16,6 +16,6 @@ class EpisodeModel {
     @SerializedName("Episode")
     var episode: String? = null
     var season: Int = 0
-     var imdbRating: String? = null
+    var imdbRating: String? = null
 
 }

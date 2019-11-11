@@ -8,8 +8,7 @@ import com.github.fatemehmsp.movie.model.MovieModel
  * Created by Fatemeh Movassaghpour on 10/19/2019.
  */
 @Dao
-interface MovieDao :
-    BaseDao<MovieModel> {
+interface MovieDao : BaseDao<MovieModel> {
 
     @Query("select * from movie where title=:title")
     fun getMovieByTitle(title: String): MovieModel?

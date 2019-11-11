@@ -40,7 +40,6 @@ class EpisodeDetailViewModel(
 
 
     private fun onSuccess(movieModel: MovieModel) {
-        Log.d(TAG, "onSuccess")
         loadingProgressBar.postValue(false)
         AppDatabase.getInstance().movieDao().deleteMovieByTitle(movieModel.title!!)
         movieData.postValue(movieModel)

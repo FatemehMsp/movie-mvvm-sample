@@ -41,7 +41,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun onSuccess(movieModel: MovieModel) {
-        Log.d(TAG, "onSuccess")
         message.postValue(R.string.message_online)
         loadingProgressBar.postValue(false)
         AppDatabase.getInstance().movieDao().deleteMovieByTitle(MOVIE_TITLE)

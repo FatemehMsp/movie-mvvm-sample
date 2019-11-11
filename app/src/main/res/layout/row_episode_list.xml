@@ -11,13 +11,13 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:orientation="vertical"
+        android:id="@+id/episodeParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/distance_small"
+        android:orientation="vertical"
         app:cardCornerRadius="5dp"
-        app:cardElevation="2dp"
-        android:id="@+id/episodeParent">
+        app:cardElevation="2dp">
 
 
         <RelativeLayout
@@ -29,9 +29,9 @@
                 android:id="@+id/episodeTitleTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/textSize_normal"
+                android:text="@string/episode_title"
                 android:textColor="@color/secondaryText"
-                android:text="@string/episode_title" />
+                android:textSize="@dimen/textSize_normal" />
 
             <TextView
                 android:id="@+id/episodeTitle"
@@ -39,78 +39,78 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/distance_small"
                 android:layout_toRightOf="@id/episodeTitleTxt"
-                android:textSize="@dimen/textSize_normal"
-                android:textColor="@color/primaryText"
                 android:text="@{episode.title}"
+                android:textColor="@color/primaryText"
+                android:textSize="@dimen/textSize_normal"
                 tools:text="@string/episode_title" />
 
             <TextView
                 android:id="@+id/episodeNumberTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/distance_smaller"
                 android:layout_below="@id/episodeTitleTxt"
-                android:textSize="@dimen/textSize_normal"
+                android:layout_marginTop="@dimen/distance_smaller"
+                android:text="@string/episode_number"
                 android:textColor="@color/secondaryText"
-                android:text="@string/episode_number" />
+                android:textSize="@dimen/textSize_normal" />
 
             <TextView
                 android:id="@+id/episodeNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/episodeTitleTxt"
                 android:layout_marginLeft="@dimen/distance_small"
                 android:layout_marginTop="@dimen/distance_smaller"
-                android:layout_below="@id/episodeTitleTxt"
                 android:layout_toRightOf="@id/episodeNumberTxt"
-                android:textSize="@dimen/textSize_normal"
-                android:textColor="@color/primaryText"
                 android:text="@{episode.episode}"
+                android:textColor="@color/primaryText"
+                android:textSize="@dimen/textSize_normal"
                 tools:text="3" />
 
             <TextView
                 android:id="@+id/episodeReleasedTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/distance_smaller"
                 android:layout_below="@id/episodeNumberTxt"
-                android:textSize="@dimen/textSize_normal"
+                android:layout_marginTop="@dimen/distance_smaller"
+                android:text="@string/episode_released"
                 android:textColor="@color/secondaryText"
-                android:text="@string/episode_released" />
+                android:textSize="@dimen/textSize_normal" />
 
             <TextView
                 android:id="@+id/episodeReleased"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/episodeNumberTxt"
                 android:layout_marginLeft="@dimen/distance_small"
                 android:layout_marginTop="@dimen/distance_smaller"
-                android:layout_below="@id/episodeNumberTxt"
                 android:layout_toRightOf="@id/episodeReleasedTxt"
-                android:textSize="@dimen/textSize_normal"
-                android:textColor="@color/primaryText"
                 android:text="@{episode.released}"
+                android:textColor="@color/primaryText"
+                android:textSize="@dimen/textSize_normal"
                 tools:text="3" />
 
             <TextView
                 android:id="@+id/episodeIMDTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/distance_smaller"
                 android:layout_below="@id/episodeReleasedTxt"
-                android:textSize="@dimen/textSize_normal"
+                android:layout_marginTop="@dimen/distance_smaller"
+                android:text="@string/episode_imdbrating"
                 android:textColor="@color/secondaryText"
-                android:text="@string/episode_imdbrating" />
+                android:textSize="@dimen/textSize_normal" />
 
             <TextView
                 android:id="@+id/episodeIMD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/episodeReleasedTxt"
                 android:layout_marginLeft="@dimen/distance_small"
                 android:layout_marginTop="@dimen/distance_smaller"
-                android:layout_below="@id/episodeReleasedTxt"
                 android:layout_toRightOf="@id/episodeIMDTxt"
-                android:textSize="@dimen/textSize_normal"
-                android:textColor="@color/primaryText"
                 android:text="@{episode.imdbRating}"
+                android:textColor="@color/primaryText"
+                android:textSize="@dimen/textSize_normal"
                 tools:text="3" />
 
             <ImageView

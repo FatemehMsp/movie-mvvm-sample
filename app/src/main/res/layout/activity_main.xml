@@ -21,9 +21,9 @@
             style="@style/AVLoadingIndicatorView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:isVisible="@{mainVM.loadingProgressBar}"
             app:indicatorColor="@color/colorAccent"
             app:indicatorName="BallPulseIndicator"
+            app:isVisible="@{mainVM.loadingProgressBar}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,9 +68,9 @@
                     android:layout_below="@id/mainCardImg"
                     android:layout_centerHorizontal="true"
                     android:layout_margin="@dimen/distance_normal"
+                    android:text="@{mainVM.movieData.title}"
                     android:textColor="@color/primaryText"
                     android:textSize="@dimen/textSize_medium"
-                    android:text="@{mainVM.movieData.title}"
                     tools:text="Movie Title" />
 
                 <TextView
@@ -81,10 +81,10 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/distance_normal"
                     android:layout_marginRight="@dimen/distance_normal"
+                    android:text="@{mainVM.movieData.genre}"
                     android:textColor="@color/secondaryText"
                     android:textSize="@dimen/textSize_small"
-                    tools:text="Movie Genre"
-                    android:text="@{mainVM.movieData.genre}" />
+                    tools:text="Movie Genre" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/mainMovieInfoLayout"
@@ -110,13 +110,13 @@
                         android:id="@+id/mainMovieYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{mainVM.movieData.year}"
                         android:textColor="@color/primaryText"
                         android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toStartOf="@id/mainMovieCountryTxt"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/mainMovieYearTxt"
-                        tools:text="2019"
-                        android:text="@{mainVM.movieData.year}" />
+                        tools:text="2019" />
 
 
                     <TextView
@@ -133,13 +133,13 @@
                         android:id="@+id/mainMovieCountry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{mainVM.movieData.country}"
                         android:textColor="@color/primaryText"
                         android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toStartOf="@id/mainMovieLengthTxt"
                         app:layout_constraintStart_toEndOf="@id/mainMovieYearTxt"
                         app:layout_constraintTop_toBottomOf="@id/mainMovieCountryTxt"
-                        tools:text="USA"
-                        android:text="@{mainVM.movieData.country}" />
+                        tools:text="USA" />
 
                     <TextView
                         android:id="@+id/mainMovieLengthTxt"
@@ -155,13 +155,13 @@
                         android:id="@+id/mainMovieLength"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{mainVM.movieData.runtime}"
                         android:textColor="@color/primaryText"
                         android:textSize="@dimen/textSize_normal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/mainMovieCountryTxt"
                         app:layout_constraintTop_toBottomOf="@id/mainMovieLengthTxt"
-                        tools:text="180"
-                        android:text="@{mainVM.movieData.runtime}" />
+                        tools:text="180" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

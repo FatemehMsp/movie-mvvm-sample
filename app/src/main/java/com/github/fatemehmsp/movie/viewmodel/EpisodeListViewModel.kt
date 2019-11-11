@@ -35,7 +35,6 @@ class EpisodeListViewModel(private val seasonId: Int) : ViewModel() {
     }
 
     private fun onSuccess(seasonResponse: SeasonResponse) {
-        Log.d(TAG, "onSuccess")
         episodeLoadingProgressBar.postValue(false)
         setSeasonForEpisode(seasonResponse)
     }
@@ -52,7 +51,6 @@ class EpisodeListViewModel(private val seasonId: Int) : ViewModel() {
         AppDatabase.getInstance().episodeDao().deleteSeasonEpisodes(seasonId)
         seasonResponse.episodes.forEach {
             it.season = seasonId
-            //AppDatabase.getInstance().episodeDao().insert(it)
         }
         episodes.postValue(seasonResponse.episodes)
         AppDatabase.getInstance().episodeDao().insertEpisodeList(seasonResponse.episodes)
