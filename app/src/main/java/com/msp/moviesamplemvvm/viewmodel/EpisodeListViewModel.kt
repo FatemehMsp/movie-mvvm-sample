@@ -50,12 +50,12 @@ class EpisodeListViewModel(private val seasonId: Int) : ViewModel() {
 
     private fun setSeasonForEpisode(seasonResponse: SeasonResponse) {
         AppDatabase.getInstance().episodeDao().deleteSeasonEpisodes(seasonId)
-        seasonResponse.Episodes.forEach {
+        seasonResponse.episodes.forEach {
             it.season = seasonId
-            AppDatabase.getInstance().episodeDao().insert(it)
+            //AppDatabase.getInstance().episodeDao().insert(it)
         }
-        episodes.postValue(seasonResponse.Episodes)
-        //AppDatabase.getInstance().episodeDao().insertEpisodeList(seasonResponse.Episodes)
+        episodes.postValue(seasonResponse.episodes)
+        AppDatabase.getInstance().episodeDao().insertEpisodeList(seasonResponse.episodes)
     }
 
     override fun onCleared() {

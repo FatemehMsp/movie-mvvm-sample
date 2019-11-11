@@ -1,11 +1,14 @@
 package com.msp.moviesamplemvvm.model
 
+import com.google.gson.annotations.SerializedName
+
 class SeasonResponse {
 
-    var Title: String? = null
-    var Season: String? = null
+    var title: String? = null
+    var season: String? = null
     var totalSeasons: String? = null
-    var Episodes: MutableList<EpisodeModel> = arrayListOf()
-    var Response: String? = null
+    @SerializedName("Episodes")
+    var episodes: MutableList<EpisodeModel> = arrayListOf()
+    var response: String? = null
 
 }

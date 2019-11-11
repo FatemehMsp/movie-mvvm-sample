@@ -34,8 +34,8 @@ class EpisodeListAdapter(val context: Context, private val items: MutableList<Ep
         holder.dataBinding.root.episodeParent.setOnClickListener {
             context.startActivity(
                 EpisodeDetailActivity.createIntent(
-                    context, items[position].season, items[position].Episode!!,
-                    items[position].Title!!
+                    context, items[position].season, items[position].episode!!,
+                    items[position].title!!
                 )
             )
         }
