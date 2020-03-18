@@ -1,7 +1,7 @@
 package com.github.fatemehmsp.movie.di.module
 
-import com.github.fatemehmsp.movie.network.ApiClient
-import com.github.fatemehmsp.movie.network.ApiService
+import com.github.fatemehmsp.movie.Api.ApiClient
+import com.github.fatemehmsp.movie.Api.ApiService
 import com.github.fatemehmsp.movie.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides

@@ -2,9 +2,9 @@ package com.github.fatemehmsp.movie.di.module
 
 import androidx.room.Room
 import com.github.fatemehmsp.movie.App
-import com.github.fatemehmsp.movie.model.database.AppDatabase
-import com.github.fatemehmsp.movie.model.database.EpisodeDao
-import com.github.fatemehmsp.movie.model.database.MovieDao
+import com.github.fatemehmsp.movie.data.database.AppDatabase
+import com.github.fatemehmsp.movie.data.database.EpisodeDao
+import com.github.fatemehmsp.movie.data.database.MovieDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

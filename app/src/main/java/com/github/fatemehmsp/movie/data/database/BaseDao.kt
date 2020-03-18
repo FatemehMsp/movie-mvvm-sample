@@ -1,4 +1,4 @@
-package com.github.fatemehmsp.movie.model.database
+package com.github.fatemehmsp.movie.data.database
 
 import androidx.room.*
 

@@ -1,9 +1,9 @@
-package com.github.fatemehmsp.movie.model.database
+package com.github.fatemehmsp.movie.data.database
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.github.fatemehmsp.movie.model.EpisodeModel
+import com.github.fatemehmsp.movie.data.model.EpisodeModel
 
 /**
  * Created by Fatemeh Movassaghpour on 10/19/2019.

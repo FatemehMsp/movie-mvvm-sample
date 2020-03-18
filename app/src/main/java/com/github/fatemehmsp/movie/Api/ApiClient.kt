@@ -1,7 +1,7 @@
-package com.github.fatemehmsp.movie.network
+package com.github.fatemehmsp.movie.Api
 
-import com.github.fatemehmsp.movie.model.MovieModel
-import com.github.fatemehmsp.movie.model.SeasonResponse
+import com.github.fatemehmsp.movie.data.model.MovieModel
+import com.github.fatemehmsp.movie.data.model.SeasonResponse
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

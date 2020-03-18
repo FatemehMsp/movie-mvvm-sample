@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.github.fatemehmsp.movie.BR
 import com.github.fatemehmsp.movie.databinding.RowSeasonListBinding
-import com.github.fatemehmsp.movie.model.SeasonModel
+import com.github.fatemehmsp.movie.data.model.SeasonModel
 import com.github.fatemehmsp.movie.ui.activity.EpisodeListActivity
 import com.github.fatemehmsp.movie.util.DataBindingViewHolder
 import kotlinx.android.synthetic.main.row_season_list.view.*

@@ -3,10 +3,10 @@ package com.github.fatemehmsp.movie.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.github.fatemehmsp.movie.model.EpisodeModel
-import com.github.fatemehmsp.movie.model.SeasonResponse
-import com.github.fatemehmsp.movie.model.database.AppDatabase
-import com.github.fatemehmsp.movie.network.ApiClient
+import com.github.fatemehmsp.movie.data.model.EpisodeModel
+import com.github.fatemehmsp.movie.data.model.SeasonResponse
+import com.github.fatemehmsp.movie.data.database.AppDatabase
+import com.github.fatemehmsp.movie.Api.ApiClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

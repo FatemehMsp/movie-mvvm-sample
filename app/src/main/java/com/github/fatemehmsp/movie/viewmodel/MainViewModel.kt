@@ -5,10 +5,10 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.github.fatemehmsp.movie.R
-import com.github.fatemehmsp.movie.model.MovieModel
-import com.github.fatemehmsp.movie.model.SeasonModel
-import com.github.fatemehmsp.movie.model.database.AppDatabase
-import com.github.fatemehmsp.movie.network.ApiClient
+import com.github.fatemehmsp.movie.data.model.MovieModel
+import com.github.fatemehmsp.movie.data.model.SeasonModel
+import com.github.fatemehmsp.movie.data.database.AppDatabase
+import com.github.fatemehmsp.movie.Api.ApiClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

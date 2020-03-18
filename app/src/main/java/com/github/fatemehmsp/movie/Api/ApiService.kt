@@ -1,7 +1,7 @@
-package com.github.fatemehmsp.movie.network
+package com.github.fatemehmsp.movie.Api
 
-import com.github.fatemehmsp.movie.model.MovieModel
-import com.github.fatemehmsp.movie.model.SeasonResponse
+import com.github.fatemehmsp.movie.data.model.MovieModel
+import com.github.fatemehmsp.movie.data.model.SeasonResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -9,23 +9,20 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("/?")
+    @GET("/?f6defde,")
     fun getMovie(
-        @Query("apikey") apikey: String,
         @Query("t") title: String
     ): Single<MovieModel>
 
 
-    @GET("/?")
+    @GET("/?f6defde,")
     fun getSeason(
-        @Query("apikey") apikey: String,
         @Query("t") title: String,
         @Query("Season") Season: Int
     ): Single<SeasonResponse>
 
-    @GET("/?")
+    @GET("/?f6defde,")
     fun getEpisode(
-        @Query("apikey") apikey: String,
         @Query("t") title: String,
         @Query("Episode") episode: String,
         @Query("Season") season: Int

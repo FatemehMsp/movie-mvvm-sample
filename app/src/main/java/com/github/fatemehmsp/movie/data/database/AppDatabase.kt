@@ -1,12 +1,9 @@
-package com.github.fatemehmsp.movie.model.database
+package com.github.fatemehmsp.movie.data.database
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.github.fatemehmsp.movie.App
-import com.github.fatemehmsp.movie.model.EpisodeModel
-import com.github.fatemehmsp.movie.model.MovieModel
+import com.github.fatemehmsp.movie.data.model.EpisodeModel
+import com.github.fatemehmsp.movie.data.model.MovieModel
 
 
 /**

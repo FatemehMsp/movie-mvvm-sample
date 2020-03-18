@@ -1,6 +1,6 @@
 package com.github.fatemehmsp.movie.util
 
-import com.github.fatemehmsp.movie.model.SeasonModel
+import com.github.fatemehmsp.movie.data.model.SeasonModel
 
 /**
  * Created by Fatemeh Movassaghpour on 3/18/2020.
