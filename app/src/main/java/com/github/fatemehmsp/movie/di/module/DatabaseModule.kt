@@ -1,4 +1,4 @@
-package com.github.fatemehmsp.movie.di
+package com.github.fatemehmsp.movie.di.module
 
 import androidx.room.Room
 import com.github.fatemehmsp.movie.App

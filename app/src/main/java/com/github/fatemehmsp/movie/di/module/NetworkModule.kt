@@ -1,6 +1,5 @@
-package com.github.fatemehmsp.movie.di
+package com.github.fatemehmsp.movie.di.module
 
-import com.github.fatemehmsp.movie.App
 import com.github.fatemehmsp.movie.network.ApiClient
 import com.github.fatemehmsp.movie.network.ApiService
 import com.github.fatemehmsp.movie.util.Constants.BASE_URL

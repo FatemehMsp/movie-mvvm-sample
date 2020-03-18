@@ -8,18 +8,5 @@ import com.google.gson.reflect.TypeToken
 /**
  * Created by Fatemeh Movassaghpour on 10/19/2019.
  */
-class SeasonModel {
-
-    var id: Int = 0
-    var title: String = ""
-
-    fun getSeasonFromJson(context: Context): MutableList<SeasonModel> {
-        return Gson().fromJson<MutableList<SeasonModel>>(
-            GsonDataReader().getAssetJsonData(
-                context,
-                "seasonList.gson"
-            ), object : TypeToken<MutableList<SeasonModel>>() {}.type
-        )
-    }
-
-}
+class SeasonModel(private var id: Int
+                  ,private var title: String)
