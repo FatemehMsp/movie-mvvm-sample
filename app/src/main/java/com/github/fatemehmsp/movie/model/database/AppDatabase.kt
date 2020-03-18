@@ -20,32 +20,9 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun episodeDao(): EpisodeDao
 
     companion object {
-
-        private const val DB_NAME = "movie_db"
-
-        @Volatile
-        var INSTANCE: AppDatabase? = null
-
-        fun getInstance(): AppDatabase =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE
-                    ?: buildDatabase(
-                        App.applicationContext()
-                    ).also { INSTANCE = it }
-            }
-
-
-        private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(
-                context,
-                AppDatabase::class.java,
-                DB_NAME
-            ).allowMainThreadQueries().build()
+        const val DB_NAME = "movie_db"
     }
 
 
-    fun clearAllTablesDataBase() {
-        getInstance().clearAllTables()
-    }
 
 }
