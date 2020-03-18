@@ -11,7 +11,7 @@ import dagger.multibindings.IntoMap
  * Created by Fatemeh Movassaghpour on 3/18/2020.
  */
 @Module
-abstract class EpisodeListModule {
+abstract class EpisodeListViewModelModule {
 
     @Binds
     @IntoMap

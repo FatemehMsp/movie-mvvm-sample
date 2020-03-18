@@ -12,7 +12,7 @@ import com.github.fatemehmsp.movie.data.model.MovieModel
 interface MovieDao : BaseDao<MovieModel> {
 
     @Query("select * from movie where title=:title")
-    fun getMovieByTitle(title: String): LiveData<MovieModel>
+    fun getMovieByTitle(title: String): MovieModel?
 
     @Query("delete from movie where title=:title")
     fun deleteMovieByTitle(title: String)

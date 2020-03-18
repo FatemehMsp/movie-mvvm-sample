@@ -4,13 +4,15 @@ import com.github.fatemehmsp.movie.di.ApplicationComponent
 import com.github.fatemehmsp.movie.di.module.ViewModelFactoryModule
 import com.github.fatemehmsp.movie.ui.activity.MainActivity
 import com.github.fatemehmsp.movie.viewmodel.ViewModelFactory
+import dagger.BindsInstance
 import dagger.Component
 
 /**
  * Created by Fatemeh Movassaghpour on 3/18/2020.
  */
 @MainActivityScope
-@Component(modules = [ViewModelFactoryModule::class])
+@Component(dependencies = [ApplicationComponent::class]
+    ,modules = [MainViewModelModule::class])
 interface MainActivityComponent {
 
     fun viewModelFactory() : ViewModelFactory
@@ -21,7 +23,7 @@ interface MainActivityComponent {
 
         fun applicationComponent(applicationComponent: ApplicationComponent):Builder
 
-        fun Build() : MainActivity
+        fun build() : MainActivityComponent
     }
 
 }

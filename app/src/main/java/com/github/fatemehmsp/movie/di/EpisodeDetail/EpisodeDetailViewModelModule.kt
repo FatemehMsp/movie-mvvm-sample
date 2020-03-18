@@ -4,11 +4,13 @@ import androidx.lifecycle.ViewModel
 import com.github.fatemehmsp.movie.di.ViewModelKey
 import com.github.fatemehmsp.movie.viewmodel.EpisodeDetailViewModel
 import dagger.Binds
+import dagger.Module
 import dagger.multibindings.IntoMap
 
 /**
  * Created by Fatemeh Movassaghpour on 3/18/2020.
  */
+@Module
 abstract class EpisodeDetailViewModelModule {
 
     @Binds

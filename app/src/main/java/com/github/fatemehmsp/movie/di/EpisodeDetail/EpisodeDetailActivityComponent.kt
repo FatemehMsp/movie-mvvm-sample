@@ -5,6 +5,7 @@ import com.github.fatemehmsp.movie.di.module.ViewModelFactoryModule
 import com.github.fatemehmsp.movie.ui.activity.EpisodeDetailActivity
 import com.github.fatemehmsp.movie.ui.activity.EpisodeListActivity
 import com.github.fatemehmsp.movie.viewmodel.ViewModelFactory
+import dagger.BindsInstance
 import dagger.Component
 
 /**
@@ -12,7 +13,8 @@ import dagger.Component
  */
 
 @EpisodeDetailActivityScope
-@Component(modules = [ViewModelFactoryModule::class])
+@Component(dependencies = [ApplicationComponent::class]
+    ,modules = [EpisodeDetailViewModelModule::class])
 interface EpisodeDetailActivityComponent {
 
     fun viewModelFactory() : ViewModelFactory
@@ -23,6 +25,6 @@ interface EpisodeDetailActivityComponent {
 
         fun applicationComponent(applicationComponent: ApplicationComponent):Builder
 
-        fun Build() : EpisodeDetailActivity
+        fun build() : EpisodeDetailActivityComponent
     }
 }

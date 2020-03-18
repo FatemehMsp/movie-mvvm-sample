@@ -9,12 +9,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.github.fatemehmsp.movie.App
 import com.github.fatemehmsp.movie.R
 import com.github.fatemehmsp.movie.databinding.ActivityEpisodeListBinding
+import com.github.fatemehmsp.movie.di.EpisodeList.DaggerEpisodeListActivityComponent
 import com.github.fatemehmsp.movie.ui.adapter.EpisodeListAdapter
 import com.github.fatemehmsp.movie.viewmodel.EpisodeListViewModel
 import com.github.fatemehmsp.movie.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.toolbar_main.*
+import javax.inject.Inject
 
 /**
  * Created by Fatemeh Movassaghpour on 11/7/2019.
@@ -23,6 +26,9 @@ class EpisodeListActivity : AppCompatActivity() {
 
     private var seasonId = 0
     private var seasonTitle = ""
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
 
     companion object {
 
@@ -43,9 +49,11 @@ class EpisodeListActivity : AppCompatActivity() {
 
         processIntent()
 
+        setupDagger()
+
         val viewModel = ViewModelProvider(
             this,
-            ViewModelFactory(seasonId)
+            viewModelFactory
         ).get(EpisodeListViewModel::class.java)
 
         val binding: ActivityEpisodeListBinding =
@@ -54,6 +62,8 @@ class EpisodeListActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         initToolbar()
+
+        viewModel.getSeasonEpisodes(seasonId)
 
         viewModel.episodes.observe(this, Observer {
             binding.episodeList.layoutManager =
@@ -76,5 +86,13 @@ class EpisodeListActivity : AppCompatActivity() {
         toolbarBack.setOnClickListener { finish() }
     }
 
+    private fun setupDagger() {
 
+        val episodeListActivityComponent = DaggerEpisodeListActivityComponent
+            .builder()
+            .applicationComponent((application as App).getApplicationComponent())
+            .build()
+
+        episodeListActivityComponent.inject(this)
+    }
 }

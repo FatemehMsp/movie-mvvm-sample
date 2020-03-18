@@ -6,28 +6,28 @@ import androidx.lifecycle.ViewModel
 import com.github.fatemehmsp.movie.data.model.EpisodeModel
 import com.github.fatemehmsp.movie.data.model.SeasonResponse
 import com.github.fatemehmsp.movie.data.database.AppDatabase
-import com.github.fatemehmsp.movie.Api.ApiClient
+import com.github.fatemehmsp.movie.Api.ApiService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 /**
  * Created by Fatemeh Movassaghpour on 11/7/2019.
  */
-class EpisodeListViewModel(private val seasonId: Int) : ViewModel() {
+class EpisodeListViewModel@Inject constructor(var apiService: ApiService,var database: AppDatabase) : ViewModel() {
     private val TAG: String = EpisodeListViewModel::class.java.simpleName
     val episodes: MutableLiveData<MutableList<EpisodeModel>> by lazy { MutableLiveData<MutableList<EpisodeModel>>() }
     private val disposables = CompositeDisposable()
     val episodeLoadingProgressBar: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>(false) }
+    private var seasonId: Int=0
 
-    init {
-        getSeasonEpisodes()
-    }
 
-    private fun getSeasonEpisodes() {
+    fun getSeasonEpisodes(seasonId: Int) {
+        this.seasonId = seasonId
         episodeLoadingProgressBar.postValue(true)
         disposables.add(
-            ApiClient().getSeason(seasonId)
+            apiService.getSeason(seasonId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::onSuccess, this::onError)
@@ -40,7 +40,7 @@ class EpisodeListViewModel(private val seasonId: Int) : ViewModel() {
     }
 
     private fun onError(e: Throwable) {
-        AppDatabase.getInstance().episodeDao().getSeasonEpisodes(seasonId)?.let {
+        database.episodeDao().getSeasonEpisodes(seasonId)?.let {
             episodeLoadingProgressBar.postValue(false)
             episodes.postValue(it)
         } ?: episodeLoadingProgressBar.postValue(true)
@@ -48,12 +48,12 @@ class EpisodeListViewModel(private val seasonId: Int) : ViewModel() {
     }
 
     private fun setSeasonForEpisode(seasonResponse: SeasonResponse) {
-        AppDatabase.getInstance().episodeDao().deleteSeasonEpisodes(seasonId)
+        database.episodeDao().deleteSeasonEpisodes(seasonId)
         seasonResponse.episodes.forEach {
             it.season = seasonId
         }
         episodes.postValue(seasonResponse.episodes)
-        AppDatabase.getInstance().episodeDao().insertEpisodeList(seasonResponse.episodes)
+        database.episodeDao().insertEpisodeList(seasonResponse.episodes)
     }
 
     override fun onCleared() {

@@ -1,8 +1,10 @@
 package com.github.fatemehmsp.movie.di.module
 
-import com.github.fatemehmsp.movie.Api.ApiClient
 import com.github.fatemehmsp.movie.Api.ApiService
 import com.github.fatemehmsp.movie.util.Constants.BASE_URL
+import com.github.fatemehmsp.movie.util.Constants.CONNECT_TIMEOUT
+import com.github.fatemehmsp.movie.util.Constants.READ_TIMEOUT
+import com.github.fatemehmsp.movie.util.Constants.WRITE_TIMEOUT
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -52,9 +54,9 @@ class NetworkModule {
 
         return OkHttpClient.Builder()
             .addInterceptor(logging)
-            .connectTimeout(ApiClient.CONNECT_TIMEOUT, TimeUnit.SECONDS)
-            .readTimeout(ApiClient.READ_TIMEOUT, TimeUnit.SECONDS)
-            .writeTimeout(ApiClient.WRITE_TIMEOUT, TimeUnit.SECONDS)
+            .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+            .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
             .build()
     }
 

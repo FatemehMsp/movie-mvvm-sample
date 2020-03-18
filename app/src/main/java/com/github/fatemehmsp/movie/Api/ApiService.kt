@@ -9,21 +9,17 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("/?f6defde,")
-    fun getMovie(
-        @Query("t") title: String
-    ): Single<MovieModel>
+    @GET("/?apikey=f6defde&t=Game of Thrones&")
+    fun getMovie(): Single<MovieModel>
 
 
-    @GET("/?f6defde,")
+    @GET("/?apikey=f6defde&t=Game of Thrones&")
     fun getSeason(
-        @Query("t") title: String,
         @Query("Season") Season: Int
     ): Single<SeasonResponse>
 
-    @GET("/?f6defde,")
+    @GET("/?apikey=f6defde&t=Game of Thrones&")
     fun getEpisode(
-        @Query("t") title: String,
         @Query("Episode") episode: String,
         @Query("Season") season: Int
     ): Single<MovieModel>
