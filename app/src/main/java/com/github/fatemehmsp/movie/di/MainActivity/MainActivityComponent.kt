@@ -12,7 +12,7 @@ import dagger.Component
  */
 @MainActivityScope
 @Component(dependencies = [ApplicationComponent::class]
-    ,modules = [MainViewModelModule::class])
+    ,modules = [ViewModelFactoryModule::class])
 interface MainActivityComponent {
 
     fun viewModelFactory() : ViewModelFactory

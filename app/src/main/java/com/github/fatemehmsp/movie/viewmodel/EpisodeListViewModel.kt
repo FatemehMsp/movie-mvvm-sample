@@ -15,7 +15,7 @@ import javax.inject.Inject
 /**
  * Created by Fatemeh Movassaghpour on 11/7/2019.
  */
-class EpisodeListViewModel@Inject constructor(var apiService: ApiService,var database: AppDatabase) : ViewModel() {
+class EpisodeListViewModel(var apiService: ApiService,var database: AppDatabase) : ViewModel() {
     private val TAG: String = EpisodeListViewModel::class.java.simpleName
     val episodes: MutableLiveData<MutableList<EpisodeModel>> by lazy { MutableLiveData<MutableList<EpisodeModel>>() }
     private val disposables = CompositeDisposable()

@@ -5,6 +5,7 @@ import com.github.fatemehmsp.movie.di.ViewModelKey
 import com.github.fatemehmsp.movie.viewmodel.EpisodeDetailViewModel
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.multibindings.IntoMap
 
 /**

@@ -18,7 +18,7 @@ import javax.inject.Inject
 /**
  * Created by Fatemeh Movassaghpour on 10/19/2019.
  */
-class MainViewModel(val apiService: ApiService,val database: AppDatabase)  : ViewModel() {
+class MainViewModel@Inject constructor(val apiService: ApiService,val database: AppDatabase)  : ViewModel() {
 
     private val TAG: String = MainViewModel::class.java.simpleName
     val movieData: MutableLiveData<MovieModel> by lazy { MutableLiveData<MovieModel>() }

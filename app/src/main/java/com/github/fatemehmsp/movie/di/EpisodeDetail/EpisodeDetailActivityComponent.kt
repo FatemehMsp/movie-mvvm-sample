@@ -14,7 +14,7 @@ import dagger.Component
 
 @EpisodeDetailActivityScope
 @Component(dependencies = [ApplicationComponent::class]
-    ,modules = [EpisodeDetailViewModelModule::class])
+    ,modules = [ViewModelFactoryModule::class])
 interface EpisodeDetailActivityComponent {
 
     fun viewModelFactory() : ViewModelFactory

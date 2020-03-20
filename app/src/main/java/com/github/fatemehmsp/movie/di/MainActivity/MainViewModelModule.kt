@@ -15,12 +15,11 @@ import dagger.multibindings.IntoMap
  * Created by Fatemeh Movassaghpour on 3/18/2020.
  */
 @Module
-class MainViewModelModule {
+abstract class MainViewModelModule {
 
-    @Provides
+    @Binds
     @IntoMap
     @ViewModelKey(MainViewModel::class)
-    fun provideMainViewModel(apiService: ApiService,database: AppDatabase): ViewModel =
-        MainViewModel(apiService,database)
+   abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
 
 }
