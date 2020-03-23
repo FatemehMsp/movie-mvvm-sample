@@ -3,6 +3,8 @@ package com.github.fatemehmsp.movie.di
 import com.github.fatemehmsp.movie.Api.ApiService
 import com.github.fatemehmsp.movie.App
 import com.github.fatemehmsp.movie.data.database.AppDatabase
+import com.github.fatemehmsp.movie.data.repository.EpisodeRepository
+import com.github.fatemehmsp.movie.data.repository.MovieRepository
 import com.github.fatemehmsp.movie.di.MainActivity.MainActivityComponent
 import com.github.fatemehmsp.movie.di.module.DatabaseModule
 import com.github.fatemehmsp.movie.di.module.NetworkModule
@@ -20,6 +22,8 @@ interface ApplicationComponent {
 
     fun apiService():ApiService
     fun appDatabase():AppDatabase
+    fun episodeRepository() : EpisodeRepository
+    fun movieRepository(): MovieRepository
 
     @Component.Builder
     interface Builder{

@@ -65,7 +65,7 @@ class EpisodeDetailActivity : AppCompatActivity() {
         binding.episodeDetailVM = viewModel
         binding.lifecycleOwner = this
 
-        viewModel.getEpisode(episode, seasonId)
+        viewModel.getEpisode(episode, seasonId,episodeTitle)
 
         initToolbar()
     }

@@ -3,6 +3,7 @@ package com.github.fatemehmsp.movie.Api
 import com.github.fatemehmsp.movie.data.model.MovieModel
 import com.github.fatemehmsp.movie.data.model.SeasonResponse
 import io.reactivex.Single
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 

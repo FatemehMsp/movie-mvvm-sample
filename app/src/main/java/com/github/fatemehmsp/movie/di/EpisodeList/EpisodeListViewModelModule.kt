@@ -3,6 +3,7 @@ package com.github.fatemehmsp.movie.di.EpisodeList
 import androidx.lifecycle.ViewModel
 import com.github.fatemehmsp.movie.Api.ApiService
 import com.github.fatemehmsp.movie.data.database.AppDatabase
+import com.github.fatemehmsp.movie.data.repository.EpisodeRepository
 import com.github.fatemehmsp.movie.di.ViewModelKey
 import com.github.fatemehmsp.movie.viewmodel.EpisodeListViewModel
 import dagger.Binds
@@ -19,6 +20,6 @@ class EpisodeListViewModelModule {
     @Provides
     @IntoMap
     @ViewModelKey(EpisodeListViewModel::class)
-    fun provideEpisodeListViewModel(apiService: ApiService,appDatabase: AppDatabase) :ViewModel =
-        EpisodeListViewModel(apiService,appDatabase)
+    fun provideEpisodeListViewModel(episodeRepository: EpisodeRepository) :ViewModel =
+        EpisodeListViewModel(episodeRepository)
 }
