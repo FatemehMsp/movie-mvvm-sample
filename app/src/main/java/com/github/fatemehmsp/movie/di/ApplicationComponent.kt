@@ -1,13 +1,10 @@
 package com.github.fatemehmsp.movie.di
 
-import com.github.fatemehmsp.movie.Api.ApiService
 import com.github.fatemehmsp.movie.App
-import com.github.fatemehmsp.movie.data.database.AppDatabase
-import com.github.fatemehmsp.movie.data.repository.EpisodeRepository
-import com.github.fatemehmsp.movie.data.repository.MovieRepository
-import com.github.fatemehmsp.movie.di.MainActivity.MainActivityComponent
 import com.github.fatemehmsp.movie.di.module.DatabaseModule
 import com.github.fatemehmsp.movie.di.module.NetworkModule
+import com.github.fatemehmsp.movie.di.module.ViewModelFactoryModule
+import com.github.fatemehmsp.movie.viewmodel.ViewModelFactory
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -16,19 +13,17 @@ import javax.inject.Singleton
  * Created by Fatemeh Movassaghpour on 3/18/2020.
  */
 @Singleton
-@Component(modules = [NetworkModule::class,
-                        DatabaseModule::class])
+@Component(modules = [ViewModelFactoryModule::class,
+    NetworkModule::class,
+    DatabaseModule::class])
 interface ApplicationComponent {
 
-    fun apiService():ApiService
-    fun appDatabase():AppDatabase
-    fun episodeRepository() : EpisodeRepository
-    fun movieRepository(): MovieRepository
+    fun viewModelFactory() : ViewModelFactory
 
     @Component.Builder
     interface Builder{
 
-       @BindsInstance
+        @BindsInstance
         fun application(app: App) : Builder
 
         fun Build() : ApplicationComponent
