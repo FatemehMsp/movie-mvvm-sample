@@ -14,11 +14,4 @@ interface EpisodeDetailActivityComponent {
 
     fun inject(episodeDetailActivity: EpisodeDetailActivity)
 
-    @Component.Builder
-    interface Builder{
-
-        fun applicationComponent(applicationComponent: ApplicationComponent):Builder
-
-        fun build() : EpisodeDetailActivityComponent
-    }
 }

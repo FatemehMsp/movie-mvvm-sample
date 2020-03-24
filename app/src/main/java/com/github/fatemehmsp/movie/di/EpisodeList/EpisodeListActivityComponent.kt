@@ -13,11 +13,4 @@ interface EpisodeListActivityComponent {
 
     fun inject(episodeListActivity: EpisodeListActivity)
 
-    @Component.Builder
-    interface Builder{
-
-        fun applicationComponent(applicationComponent: ApplicationComponent):Builder
-
-        fun build() : EpisodeListActivityComponent
-    }
 }

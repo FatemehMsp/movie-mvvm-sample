@@ -13,12 +13,4 @@ interface MainActivityComponent {
 
     fun inject(mainActivity: MainActivity)
 
-    @Component.Builder
-    interface Builder{
-
-        fun applicationComponent(applicationComponent: ApplicationComponent):Builder
-
-        fun build() : MainActivityComponent
-    }
-
 }
