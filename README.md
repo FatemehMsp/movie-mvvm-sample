@@ -13,4 +13,4 @@ Libraries used on the sample project
 * [Retrofit 2](http://square.github.io/retrofit/)
 * [RxJava](https://github.com/ReactiveX/RxAndroid)
 * [Room](https://developer.android.com/training/data-storage/room)
-* [Dagger2]
+* Dagger2
