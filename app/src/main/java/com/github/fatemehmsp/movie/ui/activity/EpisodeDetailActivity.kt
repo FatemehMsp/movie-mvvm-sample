@@ -7,11 +7,15 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.github.fatemehmsp.movie.App
 import com.github.fatemehmsp.movie.R
 import com.github.fatemehmsp.movie.databinding.ActivityEpisodeDetailBinding
+import com.github.fatemehmsp.movie.di.EpisodeDetail.DaggerEpisodeDetailActivityComponent
+import com.github.fatemehmsp.movie.di.EpisodeDetail.EpisodeDetailActivityComponent
 import com.github.fatemehmsp.movie.viewmodel.EpisodeDetailViewModel
 import com.github.fatemehmsp.movie.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.toolbar_main.*
+import javax.inject.Inject
 
 /**
  * Created by Fatemeh Movassaghpour on 11/10/2019.
@@ -21,6 +25,9 @@ class EpisodeDetailActivity : AppCompatActivity() {
     private var seasonId = 0
     private var episode = ""
     private var episodeTitle = ""
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
 
     companion object {
 
@@ -47,16 +54,18 @@ class EpisodeDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         processIntent()
-
+        setupDagger()
         val viewModel = ViewModelProvider(
             this,
-            ViewModelFactory(seasonId, episode, episodeTitle)
+           viewModelFactory
         ).get(EpisodeDetailViewModel::class.java)
 
         val binding: ActivityEpisodeDetailBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_episode_detail)
         binding.episodeDetailVM = viewModel
         binding.lifecycleOwner = this
+
+        viewModel.getEpisode(episode, seasonId,episodeTitle)
 
         initToolbar()
     }
@@ -75,4 +84,13 @@ class EpisodeDetailActivity : AppCompatActivity() {
         toolbarBack.setOnClickListener { finish() }
     }
 
+    private fun setupDagger() {
+
+        val episodeDetailActivityComponent = DaggerEpisodeDetailActivityComponent
+            .builder()
+            .applicationComponent((application as App).getApplicationComponent())
+            .build()
+
+        episodeDetailActivityComponent.inject(this)
+    }
 }

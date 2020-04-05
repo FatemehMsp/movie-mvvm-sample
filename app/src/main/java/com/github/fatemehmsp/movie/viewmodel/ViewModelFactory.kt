@@ -2,20 +2,28 @@ package com.github.fatemehmsp.movie.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import javax.inject.Inject
+import javax.inject.Provider
+import javax.inject.Singleton
 
 /**
  * Created by Fatemeh Movassaghpour on 11/7/2019.
  */
-class ViewModelFactory(
-    private var param1: Int = 0,
-    private var param2: String = "",
-    private var param3: String = ""
-) :
-    ViewModelProvider.Factory {
+
+class ViewModelFactory
+@Inject constructor(private val creators: Map<Class<out ViewModel>,
+        @JvmSuppressWildcards Provider<ViewModel>>) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return if (modelClass.isAssignableFrom(EpisodeListViewModel::class.java))
-            EpisodeListViewModel(param1) as T
-        else
-            EpisodeDetailViewModel(param1, param2, param3) as T
+        // get the ViewModel provider based on given class
+        val creator = creators[modelClass] ?: creators.entries.firstOrNull {
+            modelClass.isAssignableFrom(it.key)
+        }?.value ?: throw IllegalArgumentException("Unknown model class $modelClass")
+        try {
+            @Suppress("UNCHECKED_CAST")
+            return creator.get() as T
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 }

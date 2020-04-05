@@ -1,4 +1,4 @@
-package com.github.fatemehmsp.movie.model
+package com.github.fatemehmsp.movie.data.model
 
 import com.google.gson.annotations.SerializedName
 

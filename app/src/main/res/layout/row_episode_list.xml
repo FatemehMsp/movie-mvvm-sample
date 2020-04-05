@@ -7,7 +7,7 @@
 
         <variable
             name="episode"
-            type="com.github.fatemehmsp.movie.model.EpisodeModel" />
+            type="com.github.fatemehmsp.movie.data.model.EpisodeModel" />
     </data>
 
     <androidx.cardview.widget.CardView

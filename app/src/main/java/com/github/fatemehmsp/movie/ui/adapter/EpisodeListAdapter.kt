@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.github.fatemehmsp.movie.BR
 import com.github.fatemehmsp.movie.databinding.RowEpisodeListBinding
-import com.github.fatemehmsp.movie.model.EpisodeModel
+import com.github.fatemehmsp.movie.data.model.EpisodeModel
 import com.github.fatemehmsp.movie.ui.activity.EpisodeDetailActivity
 import com.github.fatemehmsp.movie.util.DataBindingViewHolder
 import kotlinx.android.synthetic.main.row_episode_list.view.*
